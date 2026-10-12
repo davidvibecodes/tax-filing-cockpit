@@ -14,7 +14,13 @@ const supabase = createClient(
 function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "content-type": "application/json", "cache-control": "no-store" },
+    headers: {
+      "access-control-allow-headers": "authorization, x-client-info, apikey, content-type",
+      "access-control-allow-methods": "GET, POST, OPTIONS",
+      "access-control-allow-origin": "*",
+      "cache-control": "no-store",
+      "content-type": "application/json",
+    },
   });
 }
 
@@ -32,6 +38,16 @@ function isCreateReturnRequest(value: unknown): value is CreateReturnRequest {
 }
 
 Deno.serve(async (request) => {
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      headers: {
+        "access-control-allow-headers": "authorization, x-client-info, apikey, content-type",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "access-control-allow-origin": "*",
+      },
+    });
+  }
+
   if (request.method === "GET") {
     return json({ service: "tax-cockpit", status: "ok", version: "0.1.0" });
   }
