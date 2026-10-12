@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f5f0" />
+    <meta
+      name="description"
+      content="Tax Cockpit — an evidence-backed workspace for salaried Indian taxpayers."
+    />
+    <title>Tax Cockpit — Review your return</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!--
+      THESIS: A tax return becomes trustworthy when the evidence, conversation,
+      and form stay visible together; this refuses the category-default wizard.
+      OWN-WORLD: Quiet mineral neutrals, ink typography, plum decisions, and
+      ledger-like rules make the workspace feel inspectable, not clinical.
+      STORY: The taxpayer starts with a review-ready draft, resolves the one
+      question that matters, and sees the official form update beside it.
+      FIRST VIEWPORT: A slim navigation rail, persistent filing history, a
+      conversational review column, and a live form page share the first screen.
+      FORM: Operate surface, three-pane cockpit, user-directed from the product
+      brief; staging favors evidence-led action over a standard dashboard.
+    -->
+    <div class="app-shell">
+      <aside class="nav-rail" aria-label="Primary navigation">
+        <a class="brand-mark" href="./" aria-label="Tax Cockpit home">
+          <span class="brand-spark">✦</span>
+          <span>Tax<br />Cockpit</span>
+        </a>
+        <nav class="rail-nav">
+          <a class="rail-link active" href="#workspace">
+            <span class="rail-icon">⌘</span><span>Workspace</span>
+          </a>
+          <a class="rail-link" href="#evidence">
+            <span class="rail-icon">◌</span><span>Evidence</span>
+          </a>
+          <a class="rail-link" href="#calculations">
+            <span class="rail-icon">∑</span><span>Calculations</span>
+          </a>
+        </nav>
+        <div class="rail-bottom">
+          <button class="rail-link rail-button" type="button" id="help-button">
+            <span class="rail-icon">?</span><span>How it works</span>
+          </button>
+          <div class="profile-chip" aria-label="Signed in as DV">DV</div>
+        </div>
+      </aside>
+
+      <main class="workspace" id="workspace">
+        <header class="topbar">
+          <div>
+            <p class="breadcrumb">My filings <span>/</span> FY 2025–26</p>
+            <h1>Review your return</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="save-status"><span class="status-dot"></span>Saved just now</span>
+            <button class="icon-button" type="button" aria-label="Notifications">♢</button>
+            <button class="avatar-button" type="button" aria-label="Account menu">DV</button>
+          </div>
+        </header>
+
+        <div class="cockpit-grid">
+          <section class="history-panel panel" aria-labelledby="history-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-label">Your filings</p>
+                <h2 id="history-title">History</h2>
+              </div>
+              <button class="new-filing" type="button" id="new-filing-button">+ New</button>
+            </div>
+            <div class="filing-list">
+              <button class="filing-item selected" type="button">
+                <span class="filing-icon active-icon">FY</span>
+                <span class="filing-copy">
+                  <strong>FY 2025–26</strong>
+                  <small>Review in progress</small>
+                </span>
+                <span class="filing-more">•••</span>
+              </button>
+              <button class="filing-item" type="button">
+                <span class="filing-icon">FY</span>
+                <span class="filing-copy">
+                  <strong>FY 2024–25</strong>
+                  <small>Exported · 18 Jul 2025</small>
+                </span>
+                <span class="filing-more">•••</span>
+              </button>
+              <div class="history-empty">
+                <span class="history-line"></span>
+                <small>Older filings will appear here</small>
+              </div>
+            </div>
+            <div class="history-footer">
+              <div class="privacy-note"><span>⌁</span> Your data stays private</div>
+              <button class="text-button" type="button" id="privacy-button">Learn more <span>→</span></button>
+            </div>
+          </section>
+
+          <section class="assistant-panel panel" aria-labelledby="assistant-title">
+            <div class="assistant-heading">
+              <div class="assistant-title-wrap">
+                <div class="assistant-avatar">✦</div>
+                <div>
+                  <p class="section-label">Tax assistant</p>
+                  <h2 id="assistant-title">A careful review, together</h2>
+                </div>
+              </div>
+              <button class="icon-button small" type="button" aria-label="More assistant options">•••</button>
+            </div>
+            <div class="review-progress" aria-label="Review progress">
+              <div class="progress-track"><span style="width: 72%"></span></div>
+              <span>72% reviewed</span>
+            </div>
+            <div class="conversation" id="conversation">
+              <div class="message assistant-message">
+                <div class="message-meta"><span class="mini-avatar">✦</span><span>Tax Cockpit</span><time>10:42 AM</time></div>
+                <p>Good morning, David. I’ve matched your salary details with the Form 16 you uploaded. Your return is shaping up as an <strong>ITR-1</strong>.</p>
+                <p class="message-note">I found one decision that affects your final numbers.</p>
+              </div>
+              <div class="message user-message">
+                <p>I want to see which regime works better before I choose.</p>
+                <time>10:44 AM</time>
+              </div>
+              <div class="message assistant-message">
+                <div class="message-meta"><span class="mini-avatar">✦</span><span>Tax Cockpit</span><time>10:44 AM</time></div>
+                <p>Based on the evidence accepted so far, the <strong>new regime</strong> is lower by ₹18,640. I’ve kept your HRA exemption unresolved because the rent proof is still missing.</p>
+              </div>
+              <div class="decision-card">
+                <div class="decision-heading">
+                  <span class="decision-icon">!</span>
+                  <div>
+                    <strong>One thing to resolve</strong>
+                    <small>Needed before your return can be approved</small>
+                  </div>
+                </div>
+                <p>Do you want to add rent receipts or continue without claiming HRA exemption?</p>
+                <div class="decision-actions">
+                  <button class="secondary-button" type="button" id="upload-button">Add rent proof</button>
+                  <button class="primary-button" type="button" id="skip-button">Continue without it</button>
+                </div>
+              </div>
+            </div>
+            <form class="composer" id="composer">
+              <label class="sr-only" for="message-input">Ask your tax assistant</label>
+              <input id="message-input" type="text" placeholder="Ask anything about this return…" autocomplete="off" />
+              <button class="attach-button" type="button" aria-label="Attach evidence">＋</button>
+              <button class="send-button" type="submit" aria-label="Send message">↑</button>
+            </form>
+            <p class="assistant-disclaimer">AI suggestions are candidates. You approve every number.</p>
+          </section>
+
+          <section class="form-panel panel" aria-labelledby="form-title">
+            <div class="form-heading">
+              <div>
+                <div class="form-title-line">
+                  <p class="section-label">Official form twin</p>
+                  <span class="draft-pill">DRAFT</span>
+                </div>
+                <h2 id="form-title">ITR-1 · Sahaj</h2>
+              </div>
+              <button class="icon-button small" type="button" aria-label="Form options">•••</button>
+            </div>
+            <div class="form-toolbar">
+              <button class="toolbar-button" type="button" id="form-prev" disabled>←</button>
+              <span>Page 1 of 6</span>
+              <button class="toolbar-button" type="button" id="form-next">→</button>
+              <span class="toolbar-divider"></span>
+              <button class="toolbar-button" type="button" id="zoom-out">−</button>
+              <span id="zoom-level">100%</span>
+              <button class="toolbar-button" type="button" id="zoom-in">＋</button>
+            </div>
+            <div class="form-scroll">
+              <article class="itr-paper" id="itr-paper">
+                <div class="itr-topline">
+                  <span>आयकर विभाग</span>
+                  <span>Government of India</span>
+                </div>
+                <div class="itr-title">
+                  <span class="form-number">FORM</span>
+                  <strong>ITR-1</strong>
+                  <div><h3>SAHAJ</h3><small>INDIVIDUAL INCOME TAX RETURN</small></div>
+                </div>
+                <div class="form-year-row">
+                  <span>Assessment Year</span>
+                  <strong>2026–27</strong>
+                  <span class="form-check">✓ Filed as individual</span>
+                </div>
+                <div class="form-section-title">Part A · General Information</div>
+                <div class="form-fields">
+                  <div class="form-field full"><label>1. Name</label><input value="David V" /></div>
+                  <div class="form-field"><label>2. PAN</label><input value="••••••••" class="muted-input" /></div>
+                  <div class="form-field"><label>3. Status</label><input value="Individual" readonly /></div>
+                  <div class="form-field"><label>4. Residential status</label><input value="Resident" readonly /></div>
+                </div>
+                <div class="form-section-title">Part B · Gross Total Income</div>
+                <div class="form-row">
+                  <span>Salary / pension</span><strong>₹ 18,40,000</strong><span class="source-tag">FORM 16</span>
+                </div>
+                <div class="form-row">
+                  <span>Income from one house property</span><strong>₹ 0</strong><span class="source-tag quiet">DECLARED</span>
+                </div>
+                <div class="form-row unresolved-row">
+                  <span>Exemptions under section 10</span><strong>—</strong><span class="source-tag unresolved">NEEDS PROOF</span>
+                </div>
+                <div class="form-total"><span>Gross total income</span><strong>₹ 18,40,000</strong></div>
+                <div class="form-section-title">Part C · Deductions and Taxable Total Income</div>
+                <div class="form-row">
+                  <span>Standard deduction</span><strong>₹ 75,000</strong><span class="source-tag calculated">CALCULATED</span>
+                </div>
+                <div class="form-total"><span>Total taxable income</span><strong>₹ 17,65,000</strong></div>
+                <div class="paper-footer"><span>Generated from reviewed facts</span><span>1 / 6</span></div>
+              </article>
+            </div>
+            <div class="form-footer">
+              <div class="form-state"><span class="state-check">✓</span> Synced with your review</div>
+              <button class="approve-button" type="button" id="approve-button">Review approval <span>→</span></button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog class="info-dialog" id="info-dialog">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <div class="assistant-avatar">✦</div>
+      <h2>Built for careful filing</h2>
+      <p>Tax Cockpit keeps evidence, decisions, calculations, and the form in one reviewable place. It will never turn an unsupported guess into a claim.</p>
+      <button class="primary-button" type="button" id="dialog-ok">Got it</button>
+    </dialog>
+    <script src="./app.js"></script>
+  </body>
+</html>

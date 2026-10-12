@@ -35,3 +35,13 @@ returns with an audit event. Apply future schema changes with:
 npx supabase db push
 npx supabase functions deploy tax-cockpit --no-verify-jwt
 ```
+
+## Browser app
+
+The static cockpit lives in `app/` and is published through GitHub Pages:
+
+`https://davidvibecodes.github.io/tax-filing-cockpit/`
+
+It is a prototype surface backed by the deployed Edge Function. The current
+function accepts demo tenant and actor identifiers and is not ready for real
+taxpayer data until Supabase Auth and tenant authorization are enabled.
