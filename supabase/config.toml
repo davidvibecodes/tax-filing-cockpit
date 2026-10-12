@@ -1,0 +1,4 @@
+project_id = "xhdgijwkiqhtyclomvgn"
+
+[functions.tax-cockpit]
+verify_jwt = false
